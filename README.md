@@ -39,3 +39,6 @@ CREATE TABLE secrets (
 );
 
 9) run docker-compose up -d --build
+
+Additional information:
+On linux make user that the folder "decryption_keys" as the right permissions by ading www-data as the owner
