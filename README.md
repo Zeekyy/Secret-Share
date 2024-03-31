@@ -29,6 +29,7 @@ sample commands for generating certificates under linux: "sudo certbot certonly 
 7) run this command docker exec -it <mysql_container_name> mysql -u<db username> -p
 
 8) enter use "your db name" and copy pastes the following then exit:
+
 CREATE TABLE secrets (
     id INT AUTO_INCREMENT PRIMARY KEY,
     secret TEXT NOT NULL,
