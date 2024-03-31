@@ -9,3 +9,32 @@ Key Features:
 - Secure Key Exchange: The system generates a decryption key file, which is downloadable once, ensuring the key is not intercepted during transmission.
 - User-Friendly Interface: Designed with simplicity in mind, users can share their secrets in just a few clicks without the need for technical knowledge of the underlying encryption methods.
 - Containerized Deployment: Packaged with Docker, Secret Share can be effortlessly deployed on any server, streamlining the setup process and ensuring a consistent environment across different platforms.
+
+How to setup:
+
+1) Download from github to your server
+git clone https://github.com/Zeekyy/Secret-Share.git
+
+2) Allow port 443 on your Firewall
+
+3) ADD your https certificate to "certs" folders
+sample commands for generating certificates under linux: "sudo certbot certonly --standalone -d website.name"
+
+4) Edit docker-compose.yml
+
+5) Edit data.php get.php
+
+6) run docker-compose up -d --build
+
+7) run this command docker exec -it <mysql_container_name> mysql -u<db username> -p
+
+8) enter use "your db name" and copy pastes the following then exit:
+CREATE TABLE secrets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    secret TEXT NOT NULL,
+    token VARCHAR(64) NOT NULL,
+    expire_at DATETIME NOT NULL,
+    iv VARBINARY(128)
+);
+
+9) run docker-compose up -d --build
